@@ -15,7 +15,8 @@ class PassController extends Controller
         return view('zhuce.test');
     }
     public function ruku(){
-        echo '入库';
+        $data=$_POST;
+        var_dump($data);
     }
     public function passPortll(){
         $data=$_POST;

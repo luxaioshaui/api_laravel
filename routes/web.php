@@ -197,7 +197,7 @@ Route::get('/weixin/jssdk/test','Weixin\WeixinController@jssdkTest');//测试
 Route::resource('/res',Api\ResController::class);
 //注册
 Route::get('/zhuce','Passpt\PassController@zhuce');
-Route::get('/zhuce/ruku','Passpt\PassController@ruku');
+Route::post('/zhuce/ruku','Passpt\PassController@ruku');
 
 
 //URL2
