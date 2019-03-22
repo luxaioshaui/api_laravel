@@ -11,7 +11,9 @@ use Illuminate\Support\Facades\Redis;
 class PassController extends Controller
 {
     //
-
+    public function zhuce(){
+        echo '111111';
+    }
     public function passPortll(){
         $data=$_POST;
         $where=[
