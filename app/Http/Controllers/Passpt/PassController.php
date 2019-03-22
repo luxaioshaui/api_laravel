@@ -12,7 +12,10 @@ class PassController extends Controller
 {
     //
     public function zhuce(){
-        echo '111111';
+        return view('zhuce.test');
+    }
+    public function ruku(){
+        echo '入库';
     }
     public function passPortll(){
         $data=$_POST;
