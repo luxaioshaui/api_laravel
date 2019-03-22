@@ -16,8 +16,13 @@ class PassController extends Controller
     }
     public function ruku(){
         $data=$_POST;
-       $user_name=$data['nick_name'];
-       var_dump($data);
+        $user_token=$data['_token'];
+        $user_name=$data['nick_name'];
+        $where=[
+            'p_user'=>$user_name
+        ];
+        $user_model=UserModel::where($where)->get();
+        var_dump($user_model);
 
     }
     public function passPortll(){
