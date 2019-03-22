@@ -15,4 +15,5 @@
         <input type="password" name="u_pass2" id="inputPassword2" class="form-control" placeholder="***" required>
         <button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
     </form>
+
 @endsection
