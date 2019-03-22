@@ -16,7 +16,8 @@ class PassController extends Controller
     }
     public function ruku(){
         $data=$_POST;
-        var_dump($data);
+       $user_name=$data['nick_name'];
+
     }
     public function passPortll(){
         $data=$_POST;
