@@ -18,11 +18,39 @@ class PassController extends Controller
         $data=$_POST;
         $user_token=$data['_token'];
         $user_name=$data['nick_name'];
+        $user_password=$data['user_password'];
         $where=[
             'p_user'=>$user_name
         ];
         $user_model=UserModel::where($where)->get();
-        var_dump($user_model);
+        if(empty($user_name)){
+            $uid=substr(md5(time().mt_rand(1000,9999)),10,10);
+            $user_data=[
+                'user_name'=>$user_name,
+                'user_password'=>$user_password,
+                'user_token'=>$user_token,
+                'add_time'=>time(),
+                'uid'=>$uid
+
+            ];
+            $res=UserModel::insertGetId($user_data);
+            $res_data=[
+                'token'=>$user_token,
+                'uid'=>$uid
+            ];
+            $res_data=[
+                'srrno'=>200,
+                'msg'=>'注册成功'
+            ];
+            return $res_data;
+        }else{
+            $res_data=[
+                'srrno'=>40000,
+                'msg'=>'用户名已存在'
+            ];
+        }
+        $resoult=json_decode($res_data,true);
+        return $resoult;
 
     }
     public function passPortll(){
