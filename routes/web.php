@@ -199,6 +199,10 @@ Route::resource('/res',Api\ResController::class);
 Route::get('/zhuce','Passpt\PassController@zhuce');
 Route::post('/zhuce/ruku','Passpt\PassController@ruku');
 
+//登录页面
+Route::post('/loginl','Passpt\PassController@loginl');
 
-//URL2
-Route::get('/pass_portll','Passpt\PassController@passPortll');
+//web端登录
+Route::get('/login/weblogin','Passpt\PassController@weblogin');
+//app端登录
+Route::get('/login/applogin','Passpt\PassController@applogin');
