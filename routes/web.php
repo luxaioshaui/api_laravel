@@ -202,6 +202,8 @@ Route::post('/zhuce/ruku','Passpt\PassController@ruku');
 //登录页面
 Route::post('/loginl','Passpt\PassController@loginl');
 
+
+//test
 //web端登录
 Route::get('/login/weblogin','Passpt\PassController@weblogin');
 //app端登录

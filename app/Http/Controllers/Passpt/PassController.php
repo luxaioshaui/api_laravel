@@ -10,14 +10,17 @@ use Illuminate\Support\Facades\Redis;
 
 class PassController extends Controller
 {
-    //
+    /**
+     * 注册页面
+     * @return mixed
+     */
     public function zhuce(){
         return view('zhuce.test');
     }
-
-    public function loginl(){
-        return view('login.loginl');
-    }
+    /**
+     * 注册用户名
+     * @return array|mixed
+     */
     public function ruku(){
         $data=$_POST;
         $user_token=$data['_token'];
@@ -57,7 +60,13 @@ class PassController extends Controller
         return $resoult;
 
     }
-
+    /**
+     * 登录页面
+     * @return mixed
+     */
+    public function loginl(){
+        return view('login.loginl');
+    }
     /**
      * app登录
      * @return array
@@ -67,7 +76,6 @@ class PassController extends Controller
         $where=[
             'user_name'=>$data['user_name']
         ];
-        $login_type=$_POST['login_type'];
         $model=UserModel::where($where)->first();
         if($model){
             $pwd=pssword_verify($data['user_password'],$model['user_pwd']);
@@ -117,11 +125,11 @@ class PassController extends Controller
                 Redis::hSet($key,'web',$token);
 //                header("refresh:2,url=".$data['url']);
                 echo "登录成功";
-                header("refresh:2,url=psptt.lushishu.cn/user_html");
+                header("refresh:2,url=psptt.lushishu.cn/user_center");
             }else{
 //                header("refresh:2,/login?url=".$data['url']);
                 echo "登录失败";
-                header("refresh:2,url=psptt.lushishu.cn/loginl");
+                header("refresh:2,url=psptt.lushishu.cn/login/weblogin");
             }
         }else{
             $response=[
@@ -130,6 +138,9 @@ class PassController extends Controller
             ];
         }
         return $response;
+    }
+    public function userCenter(){
+        return view(users,center);
     }
 
 }
